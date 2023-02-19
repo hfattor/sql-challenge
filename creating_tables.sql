@@ -8,25 +8,15 @@ CREATE TABLE departments (
 SELECT *
 FROM departments;
 
--- Insert data into the table
-INSERT INTO departments (dept_no, dept_name)
-VALUES 
-
 -- Query only the `dept_name` field
 SELECT dept_name
 FROM departments;
 
--- Create a new table - Ttitles
+-- Create a new table - Titles
 CREATE TABLE titles (
   title_id CHAR (5) PRIMARY KEY,
   title VARCHAR NOT NULL
 );
-
--- Insert data into the table
-COPY titles(title_id, title)
-FROM 'C:\Users\hfatt\Documents\GitHub\sql-challenge\data\departments.csv'
-DELIMITER ','
-CSV HEADER; 
 
 -- Query all fields from the table
 SELECT *
@@ -44,10 +34,6 @@ CREATE TABLE employees (
   hire_date date
 );
 
--- Insert data into the table
-INSERT INTO employees (emp_no, emp_title, birth_date, first_name, last_name, sex, hire_date)
-VALUES 
-
 -- Query all fields from the table
 SELECT *
 FROM employees;
@@ -59,10 +45,6 @@ CREATE TABLE dept_employees (
   dept_no CHAR(5) NOT NULL,
   FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
 );
-
--- Insert data into the table
-INSERT INTO dept_employees (emp_no, dept_no)
-VALUES 
 
 -- Query all fields from the table
 SELECT *
@@ -76,10 +58,6 @@ CREATE TABLE dept_manager (
   FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 );
 
--- Insert data into the table
-INSERT INTO dept_manager (dept_no, emp_no)
-VALUES 
-
 -- Query all fields from the table
 SELECT *
 FROM dept_manager;
@@ -90,10 +68,6 @@ CREATE TABLE salaries (
   FOREIGN KEY (emp_no) REFERENCES employees(emp_no),
   salary INTEGER NOT NULL
 );
-
--- Insert data into the table
-INSERT INTO salaries (emp_no, salary)
-VALUES 
 
 -- Query all fields from the table
 SELECT *
